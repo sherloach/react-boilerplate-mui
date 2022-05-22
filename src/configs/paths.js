@@ -1,0 +1,17 @@
+export const PATH = {
+  ROOT: '/',
+  ERROR_404: '/404',
+  ERROR_403: '/403',
+  DASHBOARD: '/dashboard',
+  PLAY_BACKGROUND: '/playbackground',
+  LOGIN: '/login',
+  PRODUCT: '/product',
+  PRODUCT_LIST: '/product/list',
+  PRODUCT_ADD: '/product/add',
+  USERS: '/users',
+  USERS_LIST: '/users/list',
+  USERS_ADD: '/users/add',
+  KANBAN: '/kanban',
+  ACCOUNT: '/account',
+  EDIT: '/edit',
+};
