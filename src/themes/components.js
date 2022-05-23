@@ -118,6 +118,15 @@ const components = (type) => ({
       },
     },
   },
+  MuiTableBody: {
+    styleOverrides: {
+      root: {
+        '.MuiTableCell-root': {
+          borderColor: type === 0 ? '#E6E8F0' : '#2D3748',
+        },
+      },
+    },
+  },
 });
 
 export default components;

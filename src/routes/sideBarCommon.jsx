@@ -62,6 +62,20 @@ export const sideBarCommon = [
         icon: <PeopleIcon fontSize="small" />,
         href: PATH.USERS,
         label: DRAWER_MENU_LABEL.USERS,
+        items: [
+          {
+            title: 'List',
+            icon: <ViewListIcon fontSize="small" />,
+            href: PATH.USER_LIST,
+            label: DRAWER_MENU_LABEL.USER_LIST,
+          },
+          {
+            title: 'Add',
+            icon: <AddIcon fontSize="small" />,
+            href: PATH.USER_ADD,
+            label: DRAWER_MENU_LABEL.USER_ADD,
+          },
+        ],
       },
     ],
   },

@@ -102,14 +102,14 @@ const UserList = ({ users, ...rest }) => {
             <TableBody>
               {users.slice(0, limit).map((user) => (
                 <TableRow hover key={user.id} selected={selectedUserIds.indexOf(user.id) !== -1}>
-                  <TableCell sx={{ borderBottom: 1, borderColor: 'divider' }} padding="checkbox">
+                  <TableCell padding="checkbox">
                     <Checkbox
                       checked={selectedUserIds.indexOf(user.id) !== -1}
                       onChange={(event) => handleSelectOne(event, user.id)}
                       value="true"
                     />
                   </TableCell>
-                  <TableCell sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                  <TableCell>
                     <Box
                       sx={{
                         alignItems: 'center',
@@ -129,16 +129,12 @@ const UserList = ({ users, ...rest }) => {
                       </Box>
                     </Box>
                   </TableCell>
-                  <TableCell sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                  <TableCell>
                     {`${user.address.city}, ${user.address.state}, ${user.address.country}`}
                   </TableCell>
-                  <TableCell sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                    {user.phone}
-                  </TableCell>
-                  <TableCell sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                    {format(user.createdAt, 'dd/MM/yyyy')}
-                  </TableCell>
-                  <TableCell sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                  <TableCell>{user.phone}</TableCell>
+                  <TableCell>{format(user.createdAt, 'dd/MM/yyyy')}</TableCell>
+                  <TableCell>
                     <Button
                       component={RouterLink}
                       to={`${PATH.USERS}/${user.id}${PATH.EDIT}`}
