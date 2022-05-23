@@ -19,7 +19,8 @@ const Error404View = lazy(() => import('pages/Error404View'));
 const DenyView = lazy(() => import('pages/DenyView'));
 const ProductAdd = lazy(() => import('pages/Product/ProductAdd'));
 const ProductList = lazy(() => import('pages/Product/ProductList'));
-const Users = lazy(() => import('pages/Users/UserList'));
+const UserList = lazy(() => import('pages/Users/UserList'));
+const UserAdd = lazy(() => import('pages/Users/UserAdd'));
 const Dashboard = lazy(() => import('pages/Dashboard'));
 const Playbackground = lazy(() => import('pages/Playbackground'));
 const Login = lazy(() => import('pages/Login'));
@@ -78,14 +79,20 @@ const routesConfig = [
       },
       {
         exact: true,
-        path: PATH.KANBAN,
-        component: Kanban,
+        path: PATH.USER_LIST,
+        component: UserList,
         requireRoles: [ROLE.ADMIN, ROLE.LEAD],
       },
       {
         exact: true,
-        path: PATH.USERS,
-        component: Users,
+        path: PATH.USER_ADD,
+        component: UserAdd,
+        requireRoles: [ROLE.ADMIN, ROLE.LEAD],
+      },
+      {
+        exact: true,
+        path: PATH.KANBAN,
+        component: Kanban,
         requireRoles: [ROLE.ADMIN, ROLE.LEAD],
       },
       {

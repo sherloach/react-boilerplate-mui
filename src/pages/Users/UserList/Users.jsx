@@ -11,7 +11,7 @@ import { users } from '__mocks__/users';
 import UserList from './UserList';
 import UserToolbar from './UserToolbar';
 
-export default function Users() {
+const Users = () => {
   const history = useHistory();
 
   return (
@@ -35,4 +35,6 @@ export default function Users() {
       </Box>
     </>
   );
-}
+};
+
+export default Users;
