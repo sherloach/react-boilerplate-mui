@@ -10,11 +10,10 @@ import shadows from './shadows';
 
 const typeTheme = [light, dark];
 
-// TODO: change background-color of table head that fits both of dark and light theme
 const themes = (type) =>
   createTheme({
     breakpoints,
-    components,
+    components: components(type),
     ...typeTheme[type],
     shape: {
       borderRadius: 8,

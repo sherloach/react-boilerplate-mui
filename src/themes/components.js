@@ -1,4 +1,4 @@
-const components = {
+const components = (type) => ({
   MuiButton: {
     defaultProps: {
       disableElevation: true,
@@ -91,16 +91,16 @@ const components = {
   MuiOutlinedInput: {
     styleOverrides: {
       notchedOutline: {
-        borderColor: '#E6E8F0',
+        borderColor: type === 0 ? '#E6E8F0' : '#2D3748',
       },
     },
   },
   MuiTableHead: {
     styleOverrides: {
       root: {
-        // backgroundColor: type === 'light' ? '#F3F4F6' : '#1F2937',
+        backgroundColor: type === 0 ? '#F3F4F6' : '#1F2937',
         '.MuiTableCell-root': {
-          color: '#374151',
+          color: type === 0 ? '#374151' : '#D1D5DB',
         },
         borderBottom: 'none',
         '& .MuiTableCell-root': {
@@ -118,6 +118,6 @@ const components = {
       },
     },
   },
-};
+});
 
 export default components;

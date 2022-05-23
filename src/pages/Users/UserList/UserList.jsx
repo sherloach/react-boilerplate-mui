@@ -92,11 +92,11 @@ const UserList = ({ users, ...rest }) => {
                     onChange={handleSelectAll}
                   />
                 </TableCell>
-                <TableCell>NAME</TableCell>
-                <TableCell>LOCATION</TableCell>
-                <TableCell>PHONE</TableCell>
-                <TableCell>REGISTRATION DATE</TableCell>
-                <TableCell>ACTIONS</TableCell>
+                <TableCell>Name</TableCell>
+                <TableCell>Location</TableCell>
+                <TableCell>Phone</TableCell>
+                <TableCell>Registration Date</TableCell>
+                <TableCell>Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
