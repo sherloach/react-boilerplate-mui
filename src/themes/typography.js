@@ -28,7 +28,7 @@ const typography = {
     fontSize: '0.75rem',
     fontWeight: 600,
     letterSpacing: '0.5px',
-    lineHeight: 2.5,
+    lineHeight: 2,
     textTransform: 'uppercase',
   },
   caption: {

@@ -41,9 +41,7 @@ const lightTheme = {
       contrastText: '#FFFFFF',
     },
     success: {
-      main: '#14B8A6',
-      light: '#43C6B7',
-      dark: '#0E8074',
+      main: '#0E8074',
       contrastText: '#FFFFFF',
     },
     info: {
@@ -60,8 +58,7 @@ const lightTheme = {
     },
     error: {
       main: '#D14343',
-      light: '#DA6868',
-      dark: '#922E2E',
+      secondary: '#DA6868',
       contrastText: '#FFFFFF',
     },
     text: {

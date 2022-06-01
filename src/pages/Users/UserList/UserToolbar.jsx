@@ -12,7 +12,7 @@ import {
 import SearchIcon from '@mui/icons-material/Search';
 import AddIcon from '@mui/icons-material/Add';
 
-const CustomerListToolbar = (props) => (
+const UserToolbar = (props) => (
   <Box {...props}>
     <Box
       sx={{
@@ -57,4 +57,4 @@ const CustomerListToolbar = (props) => (
   </Box>
 );
 
-export default CustomerListToolbar;
+export default UserToolbar;

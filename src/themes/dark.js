@@ -31,7 +31,7 @@ const darkTheme = {
     divider: '#2D3748',
     primary: {
       main: '#7582eb',
-      light: '#333',
+      light: '#333333',
       dark: '#303F9F',
       contrastText: '#FFFFFF',
     },
@@ -40,6 +40,27 @@ const darkTheme = {
       light: '#ff4081',
       dark: '#c51162',
       contrastText: '#fff',
+    },
+    success: {
+      main: '#14B8A6',
+      contrastText: '#FFFFFF',
+    },
+    info: {
+      main: '#2196F3',
+      light: '#64B6F7',
+      dark: '#0B79D0',
+      contrastText: '#FFFFFF',
+    },
+    warning: {
+      main: '#FFB020',
+      light: '#FFBF4C',
+      dark: '#B27B16',
+      contrastText: '#FFFFFF',
+    },
+    error: {
+      main: '#D14343',
+      secondary: '#922E2E',
+      contrastText: '#FFFFFF',
     },
     text: {
       primary: '#E6E6E8',

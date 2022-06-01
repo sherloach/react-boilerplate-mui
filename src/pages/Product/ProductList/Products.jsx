@@ -4,17 +4,17 @@ import { Helmet } from 'react-helmet';
 import { Box, Container } from '@mui/material';
 
 // mocks
-import { users } from '__mocks__/users';
+import { products } from '__mocks__/products';
 
 // components
-import UserList from './UserList';
-import UserToolbar from './UserToolbar';
+import ProductToolbar from './ProductToolbar';
+import ProductList from './ProductList';
 
-const Users = () => {
+const Products = () => {
   return (
     <>
       <Helmet>
-        <title>Users | Material Kit</title>
+        <title>Products | Material Kit</title>
       </Helmet>
       <Box
         sx={{
@@ -24,9 +24,9 @@ const Users = () => {
         }}
       >
         <Container maxWidth={false}>
-          <UserToolbar />
+          <ProductToolbar />
           <Box sx={{ pt: 3 }}>
-            <UserList users={users} />
+            <ProductList products={products} />
           </Box>
         </Container>
       </Box>
@@ -34,4 +34,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default Products;
