@@ -6,7 +6,19 @@ import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
 
 // material core
-import { Table, TableBody, TableCell, TableHead, TableRow, Paper, Card } from '@mui/material';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+  Paper,
+  Card,
+  TablePagination,
+} from '@mui/material';
+
+// hooks
+import usePagination from 'hooks/usePagination';
 
 // components
 import ProductExpandRow from './ProductExpandRow';
@@ -14,12 +26,9 @@ import ProductExpandRow from './ProductExpandRow';
 // helpers
 // import { canAction } from 'helpers';
 
-// hooks
-// import usePagination from 'hooks/usePagination';
-
 const ProductList = ({ products }) => {
   const [currOpenRow, setCurrOpenRow] = useState('');
-  // const { page, perPage, _changePage, _changePerPage } = usePagination();
+  const { page, perPage, _changePage, _changePerPage } = usePagination();
 
   const _handleExpandRow = (currRow) => {
     setCurrOpenRow(currRow);
@@ -42,7 +51,6 @@ const ProductList = ({ products }) => {
           </TableHead>
           <TableBody>
             {products.map((row) => (
-              // TODO: design expand component that not pre-render but render when user click
               <ProductExpandRow
                 key={row.name}
                 product={row}
@@ -53,6 +61,14 @@ const ProductList = ({ products }) => {
           </TableBody>
         </Table>
       </SimpleBar>
+      <TablePagination
+        component="div"
+        count={100}
+        page={page}
+        onPageChange={_changePage}
+        rowsPerPage={perPage}
+        onRowsPerPageChange={_changePerPage}
+      />
     </Paper>
   );
 };

@@ -30,10 +30,14 @@ import { getInitials } from 'helpers/getInitials';
 // configs
 import { PATH } from 'configs/paths';
 
+// hooks
+import usePagination from 'hooks/usePagination';
+
 const UserList = ({ users, ...rest }) => {
   const [selectedUserIds, setSelectedUserIds] = useState([]);
-  const [limit, setLimit] = useState(10);
-  const [page, setPage] = useState(0);
+  const { page, perPage, _changePage, _changePerPage } = usePagination();
+  // const [limit, setLimit] = useState(10);
+  // const [page, setPage] = useState(0);
 
   const handleSelectAll = (event) => {
     let newSelectedCustomerIds;
@@ -67,13 +71,13 @@ const UserList = ({ users, ...rest }) => {
     setSelectedUserIds(newSelectedCustomerIds);
   };
 
-  const handleLimitChange = (event) => {
-    setLimit(event.target.value);
-  };
+  // const handleLimitChange = (event) => {
+  //   setLimit(event.target.value);
+  // };
 
-  const handlePageChange = (event, newPage) => {
-    setPage(newPage);
-  };
+  // const handlePageChange = (event, newPage) => {
+  //   setPage(newPage);
+  // };
 
   return (
     <Card {...rest}>
@@ -100,7 +104,7 @@ const UserList = ({ users, ...rest }) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {users.slice(0, limit).map((user) => (
+              {users.slice(0, perPage).map((user) => (
                 <TableRow hover key={user.id} selected={selectedUserIds.indexOf(user.id) !== -1}>
                   <TableCell padding="checkbox">
                     <Checkbox
@@ -169,10 +173,10 @@ const UserList = ({ users, ...rest }) => {
       <TablePagination
         component="div"
         count={users.length}
-        onPageChange={handlePageChange}
-        onRowsPerPageChange={handleLimitChange}
+        onPageChange={_changePage}
+        onRowsPerPageChange={_changePerPage}
         page={page}
-        rowsPerPage={limit}
+        rowsPerPage={perPage}
         rowsPerPageOptions={[5, 10, 25]}
       />
     </Card>
