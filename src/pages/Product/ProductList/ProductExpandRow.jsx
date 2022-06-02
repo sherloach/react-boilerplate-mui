@@ -1,3 +1,5 @@
+/* eslint-disable no-plusplus */
+import { memo } from 'react';
 import PropTypes from 'prop-types';
 
 // material core
@@ -128,4 +130,4 @@ ProductExpandRow.propTypes = {
   handleExpandRow: PropTypes.func,
 };
 
-export default ProductExpandRow;
+export default memo(ProductExpandRow);

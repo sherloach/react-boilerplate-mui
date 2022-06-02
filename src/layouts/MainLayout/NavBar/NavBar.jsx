@@ -1,22 +1,17 @@
 import { memo } from 'react';
-import { Link, useLocation, matchPath } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // material core
-import { Avatar, Badge, Box, IconButton, Toolbar, Tooltip } from '@mui/material';
+import { Box, IconButton, Toolbar, Tooltip } from '@mui/material';
 
 // material icons
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 // components
 import Account from './components/Account';
 import DarkMode from './components/DarkMode';
 import Language from './components/Language';
-
-// types
-import NavBarItem from './NavBarItem';
 
 // styles
 import { NavbarRoot } from './styles';

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 // material core
 import { CssBaseline, Box } from '@mui/material';
@@ -12,6 +12,10 @@ import { DashboardLayoutRoot } from './styles';
 
 const MainLayout = ({ children }) => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
+
+  const handleSidebarOpen = useCallback(() => {
+    setSidebarOpen(true);
+  }, [setSidebarOpen]);
 
   return (
     <>
@@ -29,7 +33,7 @@ const MainLayout = ({ children }) => {
           {children}
         </Box>
       </DashboardLayoutRoot>
-      <NavBar onSidebarOpen={() => setSidebarOpen(true)} />
+      <NavBar onSidebarOpen={handleSidebarOpen} />
       <SideBar onClose={() => setSidebarOpen(false)} open={isSidebarOpen} />
     </>
   );

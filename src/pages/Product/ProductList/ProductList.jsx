@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import SimpleBar from 'simplebar-react';
 
@@ -30,9 +30,12 @@ const ProductList = ({ products }) => {
   const [currOpenRow, setCurrOpenRow] = useState('');
   const { page, perPage, _changePage, _changePerPage } = usePagination();
 
-  const _handleExpandRow = (currRow) => {
-    setCurrOpenRow(currRow);
-  };
+  const _handleExpandRow = useCallback(
+    (currRow) => {
+      setCurrOpenRow(currRow);
+    },
+    [setCurrOpenRow],
+  );
 
   return (
     <Paper component={Card}>
@@ -55,7 +58,7 @@ const ProductList = ({ products }) => {
                 key={row.name}
                 product={row}
                 open={row.name === currOpenRow}
-                handleExpandRow={(currRow) => _handleExpandRow(currRow)}
+                handleExpandRow={_handleExpandRow}
               />
             ))}
           </TableBody>

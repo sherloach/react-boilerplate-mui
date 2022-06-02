@@ -36,8 +36,6 @@ import usePagination from 'hooks/usePagination';
 const UserList = ({ users, ...rest }) => {
   const [selectedUserIds, setSelectedUserIds] = useState([]);
   const { page, perPage, _changePage, _changePerPage } = usePagination();
-  // const [limit, setLimit] = useState(10);
-  // const [page, setPage] = useState(0);
 
   const handleSelectAll = (event) => {
     let newSelectedCustomerIds;
@@ -70,14 +68,6 @@ const UserList = ({ users, ...rest }) => {
 
     setSelectedUserIds(newSelectedCustomerIds);
   };
-
-  // const handleLimitChange = (event) => {
-  //   setLimit(event.target.value);
-  // };
-
-  // const handlePageChange = (event, newPage) => {
-  //   setPage(newPage);
-  // };
 
   return (
     <Card {...rest}>

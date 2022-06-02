@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 import { useEffect, memo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
