@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { SnackbarProvider } from 'notistack';
 
 // material core
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 
 // context
 import { useGlobalContext } from 'context/GlobalContext';

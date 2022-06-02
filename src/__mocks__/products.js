@@ -4,7 +4,7 @@ export const products = [
     name: 'Healthcare Erbology',
     imageUrl: '/assets/images/products/product_1.png',
     category: 'healthcare',
-    barcode: 'Ekaterina Tankova',
+    barcode: '5ece2c077e39da27658aa8a9',
     oldPrice: 23.99,
     newPrice: 53.99,
     stock: {

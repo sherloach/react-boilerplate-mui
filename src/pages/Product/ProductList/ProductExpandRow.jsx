@@ -87,7 +87,7 @@ const ProductExpandRow = ({ product, open, handleExpandRow }) => {
               backgroundColor: product.status === 1 ? 'success.main' : 'info.main',
               borderRadius: '12px',
               px: 1,
-              color: 'neutral.900',
+              color: 'background.paper',
               whiteSpace: 'nowrap',
             }}
           >
@@ -99,7 +99,7 @@ const ProductExpandRow = ({ product, open, handleExpandRow }) => {
       {open ? (
         <TableRow>
           <TableCell colSpan={7} sx={{ ...styles, p: 0 }}>
-            <ProductExpandDetail product={product} />
+            <ProductExpandDetail product={product} handleExpandRow={handleExpandRow} />
           </TableCell>
         </TableRow>
       ) : (

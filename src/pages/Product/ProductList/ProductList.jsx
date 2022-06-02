@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import PerfectScrollbar from 'react-perfect-scrollbar';
 import SimpleBar from 'simplebar-react';
 
 // css
@@ -8,9 +7,6 @@ import 'simplebar-react/dist/simplebar.min.css';
 
 // material core
 import { Table, TableBody, TableCell, TableHead, TableRow, Paper, Card } from '@mui/material';
-
-// configs
-import { PATH } from 'configs';
 
 // components
 import ProductExpandRow from './ProductExpandRow';
@@ -20,37 +16,6 @@ import ProductExpandRow from './ProductExpandRow';
 
 // hooks
 // import usePagination from 'hooks/usePagination';
-
-function createData(name, calories, fat, carbs, protein, price) {
-  return {
-    name,
-    calories,
-    fat,
-    carbs,
-    protein,
-    price,
-    history: [
-      {
-        date: '2020-01-05',
-        customerId: '11091700',
-        amount: 3,
-      },
-      {
-        date: '2020-01-02',
-        customerId: 'Anonymous',
-        amount: 1,
-      },
-    ],
-  };
-}
-
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0, 3.99),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3, 4.99),
-  createData('Eclair', 262, 16.0, 24, 6.0, 3.79),
-  createData('Cupcake', 305, 3.7, 67, 4.3, 2.5),
-  createData('Gingerbread', 356, 16.0, 49, 3.9, 1.5),
-];
 
 const ProductList = ({ products }) => {
   const [currOpenRow, setCurrOpenRow] = useState('');
@@ -90,6 +55,25 @@ const ProductList = ({ products }) => {
       </SimpleBar>
     </Paper>
   );
+};
+
+ProductList.propsType = {
+  product: PropTypes.shape({
+    sku: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string,
+    category: PropTypes.string.isRequired,
+    barcode: PropTypes.string.isRequired,
+    oldPrice: PropTypes.number.isRequired,
+    newPrice: PropTypes.number.isRequired,
+    stock: PropTypes.shape({
+      quantity: PropTypes.number.isRequired,
+      variants: PropTypes.number.isRequired,
+    }).isRequired,
+    status: PropTypes.number.isRequired,
+  }).isRequired,
+  open: PropTypes.bool.isRequired,
+  handleExpandRow: PropTypes.func,
 };
 
 export default ProductList;

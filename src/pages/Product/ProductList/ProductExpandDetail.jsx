@@ -17,20 +17,32 @@ import {
 
 const states = [
   {
-    value: 'alabama',
-    label: 'Alabama',
+    value: 'healthcare',
+    label: 'Healthcare',
   },
   {
-    value: 'new-york',
-    label: 'New York',
+    value: 'makeup',
+    label: 'Makeup',
   },
   {
-    value: 'san-francisco',
-    label: 'San Francisco',
+    value: 'dress',
+    label: 'Dress',
+  },
+  {
+    value: 'skincare',
+    label: 'Skincare',
+  },
+  {
+    value: 'jewelry',
+    label: 'Jewelry',
+  },
+  {
+    value: 'blouse',
+    label: 'Blouse',
   },
 ];
 
-const ProductExpandDetail = ({ product }) => {
+const ProductExpandDetail = ({ product, handleExpandRow }) => {
   const [values, setValues] = useState(product);
 
   const handleChange = (event) => {
@@ -51,34 +63,24 @@ const ProductExpandDetail = ({ product }) => {
               <Grid item md={6} xs={12}>
                 <TextField
                   fullWidth
-                  helperText="Please specify the first name"
-                  label="First name"
-                  name="firstName"
+                  helperText="Please specify the product name"
+                  label="Product name"
+                  name="name"
                   onChange={handleChange}
                   required
-                  value={values.firstName}
+                  value={values.name}
                   variant="outlined"
                 />
               </Grid>
               <Grid item md={6} xs={12}>
                 <TextField
                   fullWidth
-                  label="Last name"
-                  name="lastName"
+                  label="SKU"
+                  name="id"
                   onChange={handleChange}
+                  disabled
                   required
-                  value={values.lastName}
-                  variant="outlined"
-                />
-              </Grid>
-              <Grid item md={6} xs={12}>
-                <TextField
-                  fullWidth
-                  label="Email Address"
-                  name="email"
-                  onChange={handleChange}
-                  required
-                  value={values.email}
+                  value={values.sku}
                   variant="outlined"
                 />
               </Grid>
@@ -101,6 +103,18 @@ const ProductExpandDetail = ({ product }) => {
                   ))}
                 </TextField>
               </Grid>
+              <Grid item md={6} xs={12}>
+                <TextField
+                  fullWidth
+                  label="Barcode"
+                  name="barcode"
+                  disabled
+                  onChange={handleChange}
+                  required
+                  value={values.barcode}
+                  variant="outlined"
+                />
+              </Grid>
             </Grid>
           </Grid>
           <Grid item md={6} xs={12}>
@@ -110,7 +124,7 @@ const ProductExpandDetail = ({ product }) => {
               <Grid item md={6} xs={12}>
                 <TextField
                   fullWidth
-                  helperText="Please specify the first name"
+                  helperText="Please specify the old price"
                   label="Old price"
                   name="oldPrice"
                   type="number"
@@ -120,7 +134,7 @@ const ProductExpandDetail = ({ product }) => {
                     shrink: 'true',
                   }}
                   required
-                  value={values.firstName}
+                  value={values.oldPrice}
                   variant="outlined"
                 />
               </Grid>
@@ -136,7 +150,7 @@ const ProductExpandDetail = ({ product }) => {
                     shrink: 'true',
                   }}
                   required
-                  value={values.lastName}
+                  value={values.newPrice}
                   variant="outlined"
                 />
               </Grid>
@@ -158,12 +172,35 @@ const ProductExpandDetail = ({ product }) => {
         <Button color="primary" variant="contained" sx={{ m: 1 }}>
           Update
         </Button>
-        <Button color="primary" variant="outlined" sx={{ m: 1 }}>
+        <Button
+          color="primary"
+          variant="outlined"
+          sx={{ m: 1 }}
+          onClick={() => handleExpandRow('')}
+        >
           Cancel
         </Button>
       </Box>
     </>
   );
+};
+
+ProductExpandDetail.propsType = {
+  product: PropTypes.shape({
+    sku: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string,
+    category: PropTypes.string.isRequired,
+    barcode: PropTypes.string.isRequired,
+    oldPrice: PropTypes.number.isRequired,
+    newPrice: PropTypes.number.isRequired,
+    stock: PropTypes.shape({
+      quantity: PropTypes.number.isRequired,
+      variants: PropTypes.number.isRequired,
+    }).isRequired,
+    status: PropTypes.number.isRequired,
+  }).isRequired,
+  handleExpandRow: PropTypes.func,
 };
 
 export default ProductExpandDetail;
