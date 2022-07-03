@@ -10,6 +10,9 @@ import store from 'stores';
 // i18n
 import 'locales/i18n';
 
+// service
+import initRequest from 'services/initRequest';
+
 // components
 import App from './App/App';
 
@@ -17,6 +20,8 @@ import App from './App/App';
 import './index.css';
 
 import reportWebVitals from './reportWebVitals';
+
+initRequest(store);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

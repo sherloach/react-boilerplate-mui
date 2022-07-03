@@ -26,7 +26,7 @@ const UserAdd = () => {
           px: 4,
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="md">
           <Box sx={{ mb: 3 }}>
             <Typography
               component={Link}

@@ -1,13 +1,14 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import useGet from 'hooks/useGet';
+import { useDispatch, useSelector } from 'react-redux';
 
 // action
 import { enqueueSnackbarAction } from 'App/App.actions';
+import { fetchTodo } from 'apis/common.api';
 
 function Playbackground() {
   const dispatch = useDispatch();
   const [pagination, setPagination] = useState(1);
+  const isLoading = useSelector((state) => state.app.isLoading);
   // const { data } = useGet(`/todos/${pagination}`, {});
 
   function checkSnackBar() {
@@ -20,8 +21,13 @@ function Playbackground() {
     );
   }
 
+  const todos = () => {
+    fetchTodo('https://jsonplaceholder.typicode.com/todos');
+  };
+
   return (
     <div>
+      {isLoading ? 'loading...' : 'pass'}
       <h3>Cancel Request: Please open Network tab.</h3>
       Pagination: {pagination}
       <br />
@@ -29,7 +35,7 @@ function Playbackground() {
       <br />
       {/* title: {data && data.title} */}
       <br />
-      <button type="button" onClick={() => setPagination(pagination + 1)}>
+      <button type="button" onClick={todos}>
         Please click multi time
       </button>
       <h3>Show snackbar</h3>
