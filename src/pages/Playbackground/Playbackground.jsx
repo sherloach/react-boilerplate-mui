@@ -9,7 +9,6 @@ function Playbackground() {
   const dispatch = useDispatch();
   const [pagination, setPagination] = useState(1);
   const isLoading = useSelector((state) => state.app.isLoading);
-  // const { data } = useGet(`/todos/${pagination}`, {});
 
   function checkSnackBar() {
     dispatch(

@@ -48,13 +48,8 @@ export default function initRequest(store) {
       return res;
     },
     (error) => {
-      if ((error && error.config.showSpinner) || error.code === 'ECONNABORTED') {
+      if (error && error.config.showSpinner) {
         decreaseRequestCount();
-      }
-
-      // handle request timeout
-      if (error.code === 'ECONNABORTED') {
-        store.dispatch(setLoading(false));
       }
 
       // handle errors
